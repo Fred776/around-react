@@ -1,0 +1,10 @@
+@import url(./__wrapper/page__wrapper.css);
+@import url(./__wrapper/_disabled/page__wrapper_disabled.css);
+
+.page {
+    height: 100vh;
+    background-color: #000;
+    color: #FFF;
+    margin: auto;
+    position: relative;
+}
