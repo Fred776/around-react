@@ -9,7 +9,7 @@ function App() {
       <Header />
       <Main />
       <Footer />
-      <div class="modal modal_type_edit">
+      {/*<div class="modal modal_type_edit">
         <div class="modal__box">
           <button class="modal__close-button modal__close-button_type_edit" type="button" aria-label="close"></button>
           <h3 class="modal__title">Edit Profile</h3>
@@ -74,7 +74,7 @@ function App() {
           </div>
           <button class="card__delete-button" type="button" aria-label="card delete button" disabled></button>
         </li>
-      </template>
+      </template>*/}
     </div>
   );
 }
