@@ -15,7 +15,7 @@ function Main() {
     const addCardPopup = document.querySelector('.modal_type_add');
     addCardPopup.classList.add('modal_open');
   }
-
+  
   return(
     <main>
       <section className="profile page__wrapper">
