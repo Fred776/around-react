@@ -18,21 +18,21 @@ function Main() {
 
   return(
     <main>
-      <section class="profile page__wrapper">
-        <button class="profile__avatar" type="button" aria-label="edit-avatar">
-          <img class="profile__avatar-button" onClick={handleEditAvatarClick} alt="edit-avatar" />
+      <section className="profile page__wrapper">
+        <button className="profile__avatar" type="button" aria-label="edit-avatar">
+          <img className="profile__avatar-button" onClick={handleEditAvatarClick} alt="edit-avatar" />
         </button>
-        <div class="profile__info">
-          <div class="profile__info-name">
-            <h1 class="profile__name"></h1>
-            <button class="profile__edit-button" type="button" onClick={handleEditProfileClick} aria-label="edit-profile"></button>
+        <div className="profile__info">
+          <div className="profile__info-name">
+            <h1 className="profile__name"></h1>
+            <button className="profile__edit-button" type="button" onClick={handleEditProfileClick} aria-label="edit-profile"></button>
           </div>
-          <p class="profile__profession"></p>
+          <p className="profile__profession"></p>
         </div>
-        <button class="profile__add-button" type="button" onClick={handleAddPlaceClick} aria-label="add-profile"></button>
+        <button className="profile__add-button" type="button" onClick={handleAddPlaceClick} aria-label="add-profile"></button>
       </section>
-      <section class="places page__wrapper">
-        <ul class="places__list">
+      <section className="places page__wrapper">
+        <ul className="places__list">
         </ul>
       </section>
     </main>

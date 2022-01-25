@@ -6,8 +6,8 @@ function PopupWithImage() {
         <div className="modal modal_type_image-preview">
             <figure className="modal__figure">
                 <img className="modal__image" alt="js" src="js" />
-                <figcaption class="modal__caption"></figcaption>
-                <button class="modal__close-button modal__close-button_type_image" type="button" aria-label="close"></button>
+                <figcaption className="modal__caption"></figcaption>
+                <button className="modal__close-button modal__close-button_type_image" type="button" aria-label="close"></button>
             </figure>
         </div>
     );
