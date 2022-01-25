@@ -9,7 +9,7 @@ function PopupWithForm(props) {
                 <form className={`modal__form modal__form_${props.name}`} name="userForm">
                     <input type="text" name="name" className={`modal__input modal__input_content${props.inputName1}`} id="modal__name" placeholder={props.placeholder1} minlength="2" maxlength="200" required />
                     <span class="modal__input-error" id="modal__name-error"></span>
-                    <input type="text" name="about" className={`modal__input modal__input_content${props.inputName1}`} id="modal__profession" placeholder={props.placeholder2} minlength="2" maxlength="200" required />
+                    <input type="text" name="about" className={`modal__input modal__input_content${props.inputName2}`} id="modal__profession" placeholder={props.placeholder2} minlength="2" maxlength="200" required />
                     <span className="modal__input-error" id="modal__profession-error"></span>
                     <button className="modal__save-button" id="Save" type="submit">{props.saveButton}</button>
                 </form>
