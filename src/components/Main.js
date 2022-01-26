@@ -1,21 +1,6 @@
 import React from "react";
 
-function Main({onEditProfileClick, onAddCardClick, onEditAvatarClick, onCardClick}) {
-  /*function handleEditAvatarClick() {
-    const editAvatarPopup = document.querySelector('.modal_type_edit-avatar');
-    editAvatarPopup.classList.add('modal_open');
-  }
-
-  function handleEditProfileClick() {
-    const editProfilePopup = document.querySelector('.modal_type_edit');
-    editProfilePopup.classList.add('modal_open');
-  }
-
-  function handleAddPlaceClick() {
-    const addCardPopup = document.querySelector('.modal_type_add');
-    addCardPopup.classList.add('modal_open');
-  }*/
-
+function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardClick}) {
   return(
     <main>
       <section className="profile page__wrapper">
@@ -29,7 +14,7 @@ function Main({onEditProfileClick, onAddCardClick, onEditAvatarClick, onCardClic
           </div>
           <p className="profile__profession"></p>
         </div>
-        <button className="profile__add-button" type="button" onClick={onAddCardClick} aria-label="add-profile"></button>
+        <button className="profile__add-button" type="button" onClick={onAddPlaceClick} aria-label="add-profile"></button>
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
