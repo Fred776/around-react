@@ -7,15 +7,15 @@ function Card({card, onCardClick}) {
 
     return (
         <li className="card" onClick={handleClick}>
-            <div class="card__image" style={{ backgroundImage: `url(${card.link})`}}></div>
-            <div class="card__text-container">
-                <h2 class="card__title">{card.name}</h2>
-                <div class="card__like-container">
-                    <button class="card__like-button" type="button" aria-label="heart-shaped like button"></button>
-                    <span class="card__like-counter">{card.likes.length}</span>
+            <div className="card__image" style={{ backgroundImage: `url(${card.link})`}}></div>
+            <div className="card__text-container">
+                <h2 className="card__title">{card.name}</h2>
+                <div className="card__like-container">
+                    <button className="card__like-button" type="button" aria-label="heart-shaped like button"></button>
+                    <span className="card__like-counter">{card.likes.length}</span>
                 </div>
             </div>
-            <button class="card__delete-button" type="button" aria-label="card delete button" disabled></button>
+            <button className="card__delete-button" type="button" aria-label="card delete button" disabled></button>
         </li>
     );
 }
