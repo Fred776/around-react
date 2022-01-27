@@ -21,6 +21,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
 
   React.useEffect(() => {
     api.getCards().then(cardsData => {
+      console.log(cardsData)
       setCards(cardsData);
     })
     .catch(err => console.log(`Error: ${err}`));
@@ -43,7 +44,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
-          {cards.map((card, i) => (<Card key={i} card={card} onCardClick={onCardClick}/>))}
+          {cards.map((card, id = card._id ) => (<Card key={id} card={card} onCardClick={onCardClick}/>))}
         </ul>
       </section>
     </main>
