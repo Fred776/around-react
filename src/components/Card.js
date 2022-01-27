@@ -6,8 +6,8 @@ function Card({card, onCardClick}) {
     }
 
     return (
-        <li className="card" onClick={handleClick}>
-            <div className="card__image" style={{ backgroundImage: `url(${card.link})`}}></div>
+        <li className="card">
+            <div className="card__image" style={{ backgroundImage: `url(${card.link})`}} onClick={handleClick}></div>
             <div className="card__text-container">
                 <h2 className="card__title">{card.name}</h2>
                 <div className="card__like-container">
