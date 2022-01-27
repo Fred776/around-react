@@ -1,5 +1,6 @@
 import React from "react";
 import api from '../utils/api.js';
+import Card from './Card.js';
 import editButtonSign from '../images/profile__edit-button-sign.svg';
 
 function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardClick}) {
@@ -7,14 +8,21 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
   const [userName, setUserName] = React.useState('');
   const [userDescription, setUserDescription] = React.useState('');
   const [userAvatar, setUserAvatar] = React.useState('');
+  const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    api.getUserInfo().then(data => {
-      setUserName(data.name);
-      setUserDescription(data.about);
-      setUserAvatar(data.avatar);
+    api.getUserInfo().then(userData => {
+      setUserName(userData.name);
+      setUserDescription(userData.about);
+      setUserAvatar(userData.avatar);
     })
-  }, []) 
+  }, []);
+
+  React.useEffect(() => {
+    api.getCards().then(cardData => {
+      setCards(cardData);
+    })
+  }, []);
 
   return(
     <main>
@@ -33,6 +41,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
+          {cards.map((card, i) => (<Card key={i} card={card}/>))}
         </ul>
       </section>
     </main>
