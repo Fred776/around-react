@@ -3,7 +3,7 @@ import Header from "./Header";
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from "./PopupWithForm";
-import PopupWithImage from "./PopupWithImage";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   // Popup State and Event handlers //
@@ -59,7 +59,7 @@ function App() {
         <span className="modal__input-error" id="modal__avatar-link-error"></span>
         <button className="modal__save-button" id="Save Picture" type="submit">Save Picture</button>
       </PopupWithForm>
-      <PopupWithImage card={selectedCard} onClose={handleCloseClick}/>
+      <ImagePopup card={selectedCard} onClose={handleCloseClick}/>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
 
-function PopupWithImage({card, onClose}) {
+function ImagePopup({card, onClose}) {
     return(
         <div className={`modal modal_type_image-preview" ${card ? 'modal_open' : ''}`}>
             <figure className="modal__figure">
@@ -13,4 +13,4 @@ function PopupWithImage({card, onClose}) {
     );
 }
 
-export default PopupWithImage;
+export default ImagePopup;
