@@ -2,7 +2,7 @@
 @import url(./__wrapper/_disabled/page__wrapper_disabled.css);
 
 .page {
-    height: 100vh;
+    height: 100%;
     background-color: #000;
     color: #FFF;
     margin: auto;
