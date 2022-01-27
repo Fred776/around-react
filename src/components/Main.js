@@ -20,8 +20,8 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
   }, []);
 
   React.useEffect(() => {
-    api.getCards().then(cardData => {
-      setCards(cardData);
+    api.getCards().then(cardsData => {
+      setCards(cardsData);
     })
     .catch(err => console.log(`Error: ${err}`));
   }, []);
