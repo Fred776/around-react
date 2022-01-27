@@ -1,8 +1,12 @@
 import React from "react";
 
-function Card({card}) {
+function Card({card, onCardClick}) {
+    function handleClick() {
+        onCardClick(card);
+    }
+
     return (
-        <li class="card">
+        <li className="card" onClick={handleClick}>
             <div class="card__image" style={{ backgroundImage: `url(${card.link})`}}></div>
             <div class="card__text-container">
                 <h2 class="card__title">{card.name}</h2>

@@ -41,7 +41,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
-          {cards.map((card, i) => (<Card key={i} card={card}/>))}
+          {cards.map((card, i) => (<Card key={i} card={card} onCardClick={onCardClick}/>))}
         </ul>
       </section>
     </main>
