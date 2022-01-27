@@ -16,12 +16,14 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
       setUserDescription(userData.about);
       setUserAvatar(userData.avatar);
     })
+    .catch(err => console.log(`Error: ${err}`));
   }, []);
 
   React.useEffect(() => {
     api.getCards().then(cardData => {
       setCards(cardData);
     })
+    .catch(err => console.log(`Error: ${err}`));
   }, []);
 
   return(
