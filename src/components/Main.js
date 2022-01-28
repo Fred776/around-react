@@ -39,7 +39,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
-          {cards.map((card, id = card._id ) => (<Card key={id} card={card} onCardClick={onCardClick}/>))}
+          {cards.map((card) => (<Card key={card._id} card={card} onCardClick={onCardClick}/>))}
         </ul>
       </section>
     </main>
