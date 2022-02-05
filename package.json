@@ -1,7 +1,7 @@
 {
   "name": "around-react",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://Fred776/github.io/around-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
