@@ -107,27 +107,25 @@ function App() {
   }
 
   return (
-    <>
-      <UserContext.Provider value = {currentUser}>
-        <div className="page">
-          <Header/>
-          <Main 
-            onEditProfileClick={handleEditProfileClick}
-            onAddPlaceClick={handleAddPlaceClick} 
-            onEditAvatarClick={handleEditAvatarClick} 
-            cards={cards}
-            onCardClick={handleCardClick}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
-          />
-          <Footer/>
-          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser}/>
-          <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}/>
-          <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddCard={handleAddCard}/>
-          <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
-        </div>
-      </UserContext.Provider>
-    </>
+    <UserContext.Provider value = {currentUser}>
+      <div className="page">
+        <Header/>
+        <Main 
+          onEditProfileClick={handleEditProfileClick}
+          onAddPlaceClick={handleAddPlaceClick} 
+          onEditAvatarClick={handleEditAvatarClick} 
+          cards={cards}
+          onCardClick={handleCardClick}
+          onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
+        />
+        <Footer/>
+        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser}/>
+        <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}/>
+        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddCard={handleAddCard}/>
+        <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
+      </div>
+    </UserContext.Provider>
   );
 }
 
