@@ -6,6 +6,7 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from "./PopupWithForm";
 import EditProfilePopup from "./EditProfilePopup";
+import EditAvatarPopup from './EditAvatarPopup';
 import ImagePopup from "./ImagePopup";
 
 function App() {
@@ -60,7 +61,15 @@ function App() {
     .catch(err => console.log(`Error: ${err}`));
   }
 
+  function handleUpdateAvatar(avatarUpdateData) {
+    api.editUserAvatar(avatarUpdateData).then(newAvatarData => {
+      setCurrentUser(newAvatarData);
+      handleClose();
+    })
+    .catch(err => console.log(`Error: ${err}`));
+  }
 
+  
   return (
     <>
       <UserContext.Provider value = {currentUser}>
@@ -74,6 +83,9 @@ function App() {
           />
           <Footer/>
           <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={handleClose} onUpdateUser={handleUpdateUser}/>
+          <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={handleClose} onUpdateAvatar={handleUpdateAvatar}/>
+
+        
           <PopupWithForm 
             isOpen={isAddPlacePopupOpen} 
             title='New Place' 
@@ -84,15 +96,6 @@ function App() {
             <input type="url" name="link" className="modal__input modal__input_content_card-link" id="modal__card-link" placeholder="Image Link" required/>
             <span className="modal__input-error" id="modal__card-link-error"/>
             <button className="modal__save-button modal__save-button_inactive modal__save-button_type_add" id="Create" type="submit" disabled>Create</button>
-          </PopupWithForm>
-          <PopupWithForm 
-            isOpen={isEditAvatarPopupOpen} 
-            title='Change Profile Picture' 
-            onClose={handleClose}
-          >
-            <input type="url" name="avatar" className="modal__input modal__input_content_avatar-link" id="modal__avatar-link" placeholder="Image Link" required/>
-            <span className="modal__input-error" id="modal__avatar-link-error"/>
-            <button className="modal__save-button" id="Save Picture" type="submit">Save Picture</button>
           </PopupWithForm>
           <ImagePopup 
             card={selectedCard} 
