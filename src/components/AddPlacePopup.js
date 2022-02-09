@@ -22,7 +22,7 @@ function AddPlacePopup({isOpen, onClose, onAddCard}) {
   }
 
   return (
-    <PopupWithForm title='New Place' isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
+    <PopupWithForm title='New Place' formName="addPlaceForm" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
       <input 
         type="text" 
         name="name" 

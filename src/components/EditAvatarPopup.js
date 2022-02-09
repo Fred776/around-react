@@ -21,7 +21,7 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
 
 
   return (
-    <PopupWithForm title="Edit Avatar" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
+    <PopupWithForm title="Edit Avatar" formName="editAvatarForm" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
       <input 
         type="url" 
         name="avatar" 
