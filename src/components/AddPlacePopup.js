@@ -22,7 +22,7 @@ function AddPlacePopup({isOpen, onClose, onAddCard}) {
   }
 
   return (
-    <PopupWithForm title='New Place' formName="addPlaceForm" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
+    <PopupWithForm title='New Place' formName="addPlaceForm" buttonText="Create" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
       <input 
         type="text" 
         name="name" 
@@ -45,7 +45,6 @@ function AddPlacePopup({isOpen, onClose, onAddCard}) {
         required
       />
       <span className="modal__input-error" id="modal__card-link-error"/>
-      <button className="modal__save-button" id="Create" type="submit">Create</button>
     </PopupWithForm>
   );
 }

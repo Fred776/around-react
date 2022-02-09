@@ -21,7 +21,7 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
 
 
   return (
-    <PopupWithForm title="Edit Avatar" formName="editAvatarForm" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
+    <PopupWithForm title="Edit Avatar" formName="editAvatarForm" buttonText="Save Picture" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
       <input 
         type="url" 
         name="avatar" 
@@ -32,7 +32,6 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
         required
       />
       <span className="modal__input-error" id="modal__avatar-link-error"/>
-      <button className="modal__save-button" id="Save Picture" type="submit">Save Picture</button>
     </PopupWithForm>
   )
 }

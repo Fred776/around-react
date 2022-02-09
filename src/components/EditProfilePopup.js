@@ -33,7 +33,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
   }
 
   return (
-    <PopupWithForm title="Edit Profile" formName="editProfileForm" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>  
+    <PopupWithForm title="Edit Profile" formName="editProfileForm" buttonText="Save" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>  
       <input 
         type="text" 
         name="name" 
@@ -60,7 +60,6 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
         required
       />
       <span className="modal__input-error" id="modal__profession-error"/>
-      <button className="modal__save-button" id="Save" type="submit">Save</button>
     </PopupWithForm>
   );
 }
