@@ -2,9 +2,11 @@ import React from "react";
 
 function Footer() {
   
+  const date = new Date();
+
   return(
     <footer className="footer page__wrapper">
-      <p className="footer__copyright">© 2021 Around The U.S.</p>
+      <p className="footer__copyright">{`© ${date.getFullYear()} Around the U.S.`}</p>
     </footer>
   );
 }
