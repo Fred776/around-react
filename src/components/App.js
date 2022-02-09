@@ -13,7 +13,6 @@ function App() {
 
   // Current User, Card and Popup States //
   const [currentUser, setCurrentUser] = React.useState({});
-
   const [cards, setCards] = React.useState([]);
 
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -53,7 +52,7 @@ function App() {
     setSelectedCard(card);
   }
 
-  function handleClosePopup() {
+  function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
@@ -64,7 +63,7 @@ function App() {
   function handleUpdateUser(userUpdateData) {
     api.editUserInfo(userUpdateData).then(newUserData => {
       setCurrentUser(newUserData);
-      handleClosePopup();
+      closeAllPopups();
     })
     .catch(err => console.log(`Error: ${err}`));
   }
@@ -72,7 +71,7 @@ function App() {
   function handleUpdateAvatar(avatarUpdateData) {
     api.editUserAvatar(avatarUpdateData).then(newAvatarData => {
       setCurrentUser(newAvatarData);
-      handleClosePopup();
+      closeAllPopups();
     })
     .catch(err => console.log(`Error: ${err}`));
   }     
@@ -80,7 +79,7 @@ function App() {
   function handleAddCard(cardData) {
     api.addCard(cardData).then(newCard => {
       setCards([newCard, ...cards])
-      handleClosePopup();
+      closeAllPopups();
     })
     .catch(err => console.log(`Error: ${err}`));
   }
@@ -122,10 +121,10 @@ function App() {
             onCardDelete={handleCardDelete}
           />
           <Footer/>
-          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={handleClosePopup} onUpdateUser={handleUpdateUser}/>
-          <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={handleClosePopup} onUpdateAvatar={handleUpdateAvatar}/>
-          <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={handleClosePopup} onAddCard={handleAddCard}/>
-          <ImagePopup card={selectedCard} onClose={handleClosePopup}/>
+          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser}/>
+          <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}/>
+          <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddCard={handleAddCard}/>
+          <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
         </div>
       </UserContext.Provider>
     </>
