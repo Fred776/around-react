@@ -69,7 +69,7 @@ function App() {
     .catch(err => console.log(`Error: ${err}`));
   }
 
-  
+
   return (
     <>
       <UserContext.Provider value = {currentUser}>
@@ -97,10 +97,7 @@ function App() {
             <span className="modal__input-error" id="modal__card-link-error"/>
             <button className="modal__save-button modal__save-button_inactive modal__save-button_type_add" id="Create" type="submit" disabled>Create</button>
           </PopupWithForm>
-          <ImagePopup 
-            card={selectedCard} 
-            onClose={handleClose}
-          />
+          <ImagePopup card={selectedCard} onClose={handleClose}/>
         </div>
       </UserContext.Provider>
     </>
