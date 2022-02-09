@@ -1,19 +1,21 @@
 import React from "react";
 import { UserContext } from '../contexts/CurrentUserContext';
+import api from "../utils/api";
 import Header from "./Header";
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from "./PopupWithForm";
+import EditProfilePopup from "./EditProfilePopup";
 import ImagePopup from "./ImagePopup";
-import api from "../utils/api";
 
 function App() {
 
-  // Popup State and Event handlers //
+  // Popup State and Current User State //
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
+
   const [currentUser, setCurrentUser] = React.useState({});
 
   React.useEffect(() => {
@@ -24,27 +26,38 @@ function App() {
   }, []);
 
 
+  // Click Event Handlers //
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
-  }
-
-  function handleAddPlaceClick() {
-    setIsAddPlacePopupOpen(true);
   }
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
 
+  function handleAddPlaceClick() {
+    setIsAddPlacePopupOpen(true);
+  }
+
   function handleCardClick(card) {
     setSelectedCard(card);
   }
 
-  function handleCloseClick() {
+  function handleClose() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setSelectedCard(null);
+  }
+
+
+  // Profile Updates //
+  function handleUpdateUser(userUpdateData) {
+    api.editUserInfo(userUpdateData).then(newUserData => {
+      setCurrentUser(newUserData);
+      handleClose();
+    })
+    .catch(err => console.log(`Error: ${err}`));
   }
 
 
@@ -60,21 +73,11 @@ function App() {
             onCardClick={handleCardClick} 
           />
           <Footer/>
-          <PopupWithForm 
-            isOpen={isEditProfilePopupOpen} 
-            title='Edit Profile' 
-            onClose={handleCloseClick}
-          >
-            <input type="text" name="name" className="modal__input modal__input_content_name" id="modal__name" placeholder="Profile Name" minLength="2" maxLength="200" required/>
-            <span className="modal__input-error" id="modal__name-error"/>
-            <input type="text" name="about" className="modal__input modal__input_content_profession" id="modal__profession" placeholder="Profile Profession" minLength="2" maxLength="200" required/>
-            <span className="modal__input-error" id="modal__profession-error"/>
-            <button className="modal__save-button" id="Save" type="submit">Save</button>
-          </PopupWithForm>
+          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={handleClose} onUpdateUser={handleUpdateUser}/>
           <PopupWithForm 
             isOpen={isAddPlacePopupOpen} 
             title='New Place' 
-            onClose={handleCloseClick}
+            onClose={handleClose}
           >
             <input type="text" name="name" className="modal__input modal__input_content_card-name" id="modal__card-name" placeholder="Title" minLength="2" maxLength="30" required/>
             <span className="modal__input-error" id="modal__card-name-error"/>
@@ -85,7 +88,7 @@ function App() {
           <PopupWithForm 
             isOpen={isEditAvatarPopupOpen} 
             title='Change Profile Picture' 
-            onClose={handleCloseClick}
+            onClose={handleClose}
           >
             <input type="url" name="avatar" className="modal__input modal__input_content_avatar-link" id="modal__avatar-link" placeholder="Image Link" required/>
             <span className="modal__input-error" id="modal__avatar-link-error"/>
@@ -93,7 +96,8 @@ function App() {
           </PopupWithForm>
           <ImagePopup 
             card={selectedCard} 
-            onClose={handleCloseClick}/>
+            onClose={handleClose}
+          />
         </div>
       </UserContext.Provider>
     </>

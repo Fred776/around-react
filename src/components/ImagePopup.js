@@ -1,7 +1,8 @@
 import React from "react";
 
 function ImagePopup({card, onClose}) {
-  return(
+  
+  return (
     <div className={`modal modal_type_image-preview" ${card ? 'modal_open' : ''}`}>
       <figure className="modal__figure">
         <img className="modal__image" alt="place" src={card ? card.link : ''}/>

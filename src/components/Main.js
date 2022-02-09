@@ -6,7 +6,7 @@ import editButtonSign from '../images/profile__edit-button-sign.svg';
 
 function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardClick}) {
 
-  // User data State and Effects //
+  // Current User State and Card Effect //
   const currentUser = React.useContext(UserContext);
 
   const [cards, setCards] = React.useState([]);
@@ -17,7 +17,9 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
     })
     .catch(err => console.log(`Error: ${err}`));
   }, []);
+  
 
+  // Card Event Handlers //
   function handleCardLike(card, cardId) {
     if(card.likes.some(card => card._id === currentUser._id)) {
       api.deleteLike(cardId).then(newCard => {
@@ -36,6 +38,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
     api.deleteCard(cardId)
   }
 
+  
   return(
     <main>
       <section className="profile page__wrapper">
