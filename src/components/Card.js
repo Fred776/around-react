@@ -3,11 +3,12 @@ import { UserContext } from '../contexts/CurrentUserContext';
 
 function Card({card, onCardClick, onCardLike, onCardDelete}) {
 
+  // Current User Context //
   const currentUser = React.useContext(UserContext);
   const currentUserCard = card.owner._id === currentUser._id;
   const currentUserLike = card.likes.some(card => card._id === currentUser._id);
 
-
+  // Card Event handlers //
   function handleClick() {
     onCardClick(card);
   }
@@ -19,7 +20,6 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
   function handleCardDelete() {
     onCardDelete(card._id);
   }
-
   
   return (
     <li className="card">

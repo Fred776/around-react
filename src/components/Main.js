@@ -1,44 +1,12 @@
 import React from "react";
 import { UserContext } from '../contexts/CurrentUserContext';
-import api from '../utils/api.js';
 import Card from './Card.js';
 import editButtonSign from '../images/profile__edit-button-sign.svg';
 
-function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardClick}) {
+function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, cards, onCardClick, onCardLike, onCardDelete}) {
 
-  // Current User State and Card Effect //
   const currentUser = React.useContext(UserContext);
 
-  const [cards, setCards] = React.useState([]);
-
-  React.useEffect(() => {
-    api.getCards().then(cardsData => {
-      setCards(cardsData);
-    })
-    .catch(err => console.log(`Error: ${err}`));
-  }, []);
-  
-
-  // Card Event Handlers //
-  function handleCardLike(card, cardId) {
-    if(card.likes.some(card => card._id === currentUser._id)) {
-      api.deleteLike(cardId).then(newCard => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
-      })
-      .catch(err => console.log(`Error: ${err}`));
-    } else {
-      api.addLike(cardId).then(newCard => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
-      })
-      .catch(err => console.log(`Error: ${err}`));
-    }
-  }
-
-  function handleCardDelete(cardId) {
-    api.deleteCard(cardId)
-  }
-
-  
   return(
     <main>
       <section className="profile page__wrapper">
@@ -56,7 +24,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, onCardCli
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
-          {cards.map((card) => (<Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={handleCardLike} onCardDelete={handleCardDelete}/>))}
+          {cards.map((card) => (<Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete}/>))} 
         </ul>
       </section>
     </main>

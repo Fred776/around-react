@@ -4,7 +4,7 @@ import PopupWithForm from "./PopupWithForm";
 
 function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
 
-  // Current User Context and Input States //
+  // CurrentUser Context and Input States //
   const currentUser = React.useContext(UserContext);
 
   const [name, setName] = React.useState('');
@@ -26,13 +26,11 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     onUpdateUser({
       name: name,
       about: profession
     });
   }
-
 
   return (
     <PopupWithForm title="Edit Profile" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>  
