@@ -22,7 +22,7 @@ function EditAvatarPopup({isOpen, onClose, onUpdateAvatar}) {
 
 
   return (
-    <Popup isOpen={isOpen} onClose={onClose}>
+    <Popup type='form' isOpen={isOpen} onClose={onClose}>
       <PopupWithForm title="Edit Avatar" formName="editAvatarForm" buttonText="Save Picture" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
         <input 
           type="url" 

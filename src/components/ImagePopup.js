@@ -4,7 +4,7 @@ import Popup from "./Popup";
 function ImagePopup({card, onClose}) {
   
   return (
-    <Popup card={card} onClose={onClose}>
+    <Popup type='image-preview' card={card} onClose={onClose}>
       <figure className="modal__figure">
         <img className="modal__image" alt={card ? card.name : ''} src={card ? card.link : ''}/>
         <figcaption className="modal__caption">{card ? card.name : ''}</figcaption>

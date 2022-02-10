@@ -1,6 +1,6 @@
 import React from "react";
 
-function Popup({ card, isOpen, onClose, children }) {
+function Popup({ type, card, isOpen, onClose, children }) {
 
   // Close Popup by pressing Escape //
   React.useEffect(() => {
@@ -24,7 +24,7 @@ function Popup({ card, isOpen, onClose, children }) {
   }
    
   return (
-    <div className={`modal ${isOpen || card ? "modal_open" : ""}`} onClick={handleOverlay}>
+    <div className={`modal modal_type_${type} ${card || isOpen ? 'modal_open' : ''}`} onClick={handleOverlay}>
       {children}
     </div>
   );

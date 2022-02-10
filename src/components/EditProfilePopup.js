@@ -34,7 +34,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
   }
 
   return (
-    <Popup isOpen={isOpen} onClose={onClose}>
+    <Popup type='form' isOpen={isOpen} onClose={onClose}>
       <PopupWithForm title="Edit Profile" formName="editProfileForm" buttonText="Save" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}> 
         <input 
           type="text" 
