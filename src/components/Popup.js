@@ -1,6 +1,6 @@
 import React from "react";
 
-function Popup({ type, card, isOpen, onClose, children }) {
+function Popup({ type, isOpen, card, onClose, children }) {
 
   // Close Popup by pressing Escape //
   React.useEffect(() => {

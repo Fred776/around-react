@@ -1,5 +1,4 @@
 import React from "react";
-import Popup from "./Popup";
 import PopupWithForm from "./PopupWithForm";
 
 function CardDeletePopup({card, onClose, onDeleteCard}) {
@@ -10,9 +9,7 @@ function CardDeletePopup({card, onClose, onDeleteCard}) {
   }
 
   return (
-    <Popup type='form' card={card} onClose={onClose}>
-        <PopupWithForm title="Are You Sure?" formName="deleteCardForm" buttonText="Yes" onClose={onClose} onSubmit={handleSubmit}/>
-    </Popup>
+    <PopupWithForm title="Are You Sure?" formName="deleteCardForm" buttonText="Yes" card={card} onClose={onClose} onSubmit={handleSubmit}/>
   );
 }
 
