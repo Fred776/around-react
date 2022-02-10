@@ -3,7 +3,7 @@ import { UserContext } from '../contexts/CurrentUserContext';
 import Card from './Card.js';
 import editButtonSign from '../images/profile__edit-button-sign.svg';
 
-function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, cards, onCardClick, onCardLike, onCardDelete}) {
+function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, cards, onCardClick, onCardLike, onCardDeleteClick}) {
 
   const currentUser = React.useContext(UserContext);
 
@@ -24,7 +24,7 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, cards, on
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
-          {cards.map((card) => (<Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete}/>))} 
+          {cards.map((card) => (<Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDeleteClick={onCardDeleteClick}/>))} 
         </ul>
       </section>
     </main>

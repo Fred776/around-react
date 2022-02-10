@@ -1,7 +1,7 @@
 import React from "react";
 import { UserContext } from '../contexts/CurrentUserContext';
 
-function Card({card, onCardClick, onCardLike, onCardDelete}) {
+function Card({card, onCardClick, onCardLike, onCardDeleteClick}) {
 
   // Current User Context //
   const currentUser = React.useContext(UserContext);
@@ -17,8 +17,8 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
     onCardLike(card, card._id);
   }
 
-  function handleCardDelete() {
-    onCardDelete(card._id);
+  function handleCardDeleteClick() {
+    onCardDeleteClick(card);
   }
   
   return (
@@ -38,7 +38,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
       <button 
         className={`${"card__delete-button"} ${currentUserCard ? 'card__delete-button_active' : ''}`}
         type="button" 
-        onClick={handleCardDelete}
+        onClick={handleCardDeleteClick}
         aria-label="card delete button"
       />
     </li>
