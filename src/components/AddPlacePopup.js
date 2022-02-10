@@ -3,21 +3,31 @@ import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup({isOpen, onClose, onAddCard}) {
   
-  // Input Ref //
-  const nameInputRef = React.useRef();
-  const linkInputRef = React.useRef();
+  // Input States //
+  const [cardName, setCardName] = React.useState('');
+  const [cardLink, setCardLink] = React.useState('');
 
   React.useEffect(() => {
-    nameInputRef.current.value = "";
-    linkInputRef.current.value = "";
+    setCardName('');
+    setCardLink('');
   }, [isOpen]);
+  
+  // Event Handlers //
+  function handleCardNameChange(e) {
+    e.preventDefault()
+    setCardName(e.target.value);
+  }
+  
+  function handleCardLinkChange(e) {
+    e.preventDefault()
+    setCardLink(e.target.value);
+  }
 
-  // Submit Handler //
   function handleSubmit(e) {
     e.preventDefault();
     onAddCard({
-        name: nameInputRef.current.value,
-        link: linkInputRef.current.value
+      name: cardName,
+      link: cardLink
     });
   }
 
@@ -28,7 +38,8 @@ function AddPlacePopup({isOpen, onClose, onAddCard}) {
         name="name" 
         className="modal__input modal__input_content_card-name" 
         id="modal__card-name" 
-        ref={nameInputRef}
+        value={cardName}
+        onChange={handleCardNameChange}
         placeholder="Title" 
         minLength="2" 
         maxLength="30" 
@@ -40,7 +51,8 @@ function AddPlacePopup({isOpen, onClose, onAddCard}) {
         name="link"
         className="modal__input modal__input_content_card-link"
         id="modal__card-link" 
-        ref={linkInputRef}
+        value={cardLink}
+        onChange={handleCardLinkChange}
         placeholder="Image Link" 
         required
       />
