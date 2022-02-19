@@ -1,11 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { UserContext } from '../contexts/CurrentUserContext';
 import Card from './Card.js';
 import editButtonSign from '../images/profile__edit-button-sign.svg';
 
 function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, cards, onCardClick, onCardLike, onCardDeleteClick}) {
 
-  const currentUser = React.useContext(UserContext);
+  const currentUser = useContext(UserContext);
 
   return(
     <main>

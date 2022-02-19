@@ -1,29 +1,29 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup({isOpen, onClose, onAddCard}) {
   
   // Input States //
-  const [cardName, setCardName] = React.useState('');
-  const [cardLink, setCardLink] = React.useState('');
+  const [cardName, setCardName] = useState('');
+  const [cardLink, setCardLink] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCardName('');
     setCardLink('');
   }, [isOpen]);
 
   // Event Handlers //
-  function handleCardNameChange(e) {
+  const handleCardNameChange = e => {
     e.preventDefault()
     setCardName(e.target.value);
   }
   
-  function handleCardLinkChange(e) {
+  const handleCardLinkChange = e => {
     e.preventDefault()
     setCardLink(e.target.value);
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
     onAddCard({
       name: cardName,

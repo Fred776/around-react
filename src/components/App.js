@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { UserContext } from '../contexts/CurrentUserContext';
 import api from "../utils/api";
 import Header from "./Header";
@@ -13,24 +13,24 @@ import CardDeletePopup from "./CardDeletePopup";
 function App() {
 
   // Current User, Card and Popup States //
-  const [currentUser, setCurrentUser] = React.useState({});
-  const [cards, setCards] = React.useState([]);
+  const [currentUser, setCurrentUser] = useState({});
+  const [cards, setCards] = useState([]);
 
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(null);
-  const [selectedCardToDelete, setSelectedCardToDelete] = React.useState(null);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCardToDelete, setSelectedCardToDelete] = useState(null);
   
   //  Current User and Card Api calls on page load //
-  React.useEffect(() => {
+  useEffect(() => {
     api.getUserInfo().then(userData => {
       setCurrentUser(userData);
     })
     .catch(err => console.log(`Error: ${err}`));
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     api.getCards().then(cardsData => {
       setCards(cardsData);
     })
@@ -38,27 +38,13 @@ function App() {
   }, []);
   
   // Click Event Handlers //
-  function handleEditProfileClick() {
-    setIsEditProfilePopupOpen(true);
-  }
-
-  function handleEditAvatarClick() {
-    setIsEditAvatarPopupOpen(true);
-  }
-
-  function handleAddPlaceClick() {
-    setIsAddPlacePopupOpen(true);
-  }
-
-  function handleCardClick(card) {
-    setSelectedCard(card);
-  }
-
-  function handleCardDeleteClick(card) {
-    setSelectedCardToDelete(card);
-  }
-
-  function closeAllPopups() {
+  const handleEditProfileClick = () => setIsEditProfilePopupOpen(true);
+  const handleEditAvatarClick = () => setIsEditAvatarPopupOpen(true);
+  const handleAddPlaceClick = () => setIsAddPlacePopupOpen(true);
+  const handleCardClick = (card) => setSelectedCard(card);
+  const handleCardDeleteClick = (card) => setSelectedCardToDelete(card);
+  
+  const closeAllPopups = () => {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
@@ -67,7 +53,7 @@ function App() {
   }
 
   // Profile Updates and Add Card //
-  function handleUpdateUser(userUpdateData) {
+  const handleUpdateUser = (userUpdateData) => {
     api.editUserInfo(userUpdateData).then(newUserData => {
       setCurrentUser(newUserData);
       closeAllPopups();
@@ -75,7 +61,7 @@ function App() {
     .catch(err => console.log(`Error: ${err}`));
   }
 
-  function handleUpdateAvatar(avatarUpdateData) {
+  const handleUpdateAvatar = (avatarUpdateData) => {
     api.editUserAvatar(avatarUpdateData).then(newAvatarData => {
       setCurrentUser(newAvatarData);
       closeAllPopups();
@@ -83,7 +69,7 @@ function App() {
     .catch(err => console.log(`Error: ${err}`));
   }     
 
-  function handleAddCard(cardData) {
+  const handleAddCard = (cardData) => {
     api.addCard(cardData).then(newCard => {
       setCards([newCard, ...cards])
       closeAllPopups();
@@ -92,7 +78,7 @@ function App() {
   }
 
   // Card Event Handlers //
-  function handleCardLike(card, cardId) {
+  const handleCardLike = (card, cardId) => {
     if(card.likes.some(card => card._id === currentUser._id)) {
       api.deleteLike(cardId).then(newCard => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
@@ -106,7 +92,7 @@ function App() {
     }
   }
 
-  function handleCardDelete(cardId) {
+  const handleCardDelete = (cardId) => {
     api.deleteCard(cardId).then(() => {
       setCards((cards) => (cards.filter((card) => card._id !== cardId)))
       closeAllPopups();

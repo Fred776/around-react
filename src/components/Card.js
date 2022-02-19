@@ -1,26 +1,18 @@
-import React from "react";
+import { useContext } from "react";
 import { UserContext } from '../contexts/CurrentUserContext';
 
 function Card({card, onCardClick, onCardLike, onCardDeleteClick}) {
 
   // Current User Context //
-  const currentUser = React.useContext(UserContext);
+  const currentUser = useContext(UserContext);
   const currentUserCard = card.owner._id === currentUser._id;
   const currentUserLike = card.likes.some(card => card._id === currentUser._id);
 
   // Card Event handlers //
-  function handleClick() {
-    onCardClick(card);
-  }
+  const handleClick = () => onCardClick(card);
+  const handleCardLike = () => onCardLike(card, card._id);
+  const handleCardDeleteClick = () => onCardDeleteClick(card);
 
-  function handleCardLike() {
-    onCardLike(card, card._id);
-  }
-
-  function handleCardDeleteClick() {
-    onCardDeleteClick(card);
-  }
-  
   return (
     <li className="card">
       <div className="card__image" style={{ backgroundImage: `url(${card.link})`}} onClick={handleClick}/>

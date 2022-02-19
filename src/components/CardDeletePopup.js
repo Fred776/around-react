@@ -3,7 +3,7 @@ import PopupWithForm from "./PopupWithForm";
 
 function CardDeletePopup({card, onClose, onDeleteCard}) {
   
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onDeleteCard(card._id)
   }

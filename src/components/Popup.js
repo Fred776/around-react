@@ -1,12 +1,12 @@
-import React from "react";
+import { useEffect } from "react";
 
 function Popup({ type, isOpen, card, onClose, children }) {
 
   // Close Popup by pressing Escape //
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isOpen && !card) return;
 
-    function closeByEscape(e) {
+    const closeByEscape = (e) => {
       if (e.key === 'Escape') {
         onClose();
       }
@@ -17,7 +17,7 @@ function Popup({ type, isOpen, card, onClose, children }) {
   }, [isOpen, card, onClose]);
 
   // Close Popup by clicking the Overlay //
-  function handleOverlay(e) {
+  const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {
         onClose();
     }

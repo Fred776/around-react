@@ -1,30 +1,25 @@
-import React from "react";
+import { useState, useEffect, useContext} from "react";
 import { UserContext } from "../contexts/CurrentUserContext";
 import PopupWithForm from "./PopupWithForm";
 
 function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
 
   // CurrentUser Context and Input States //
-  const currentUser = React.useContext(UserContext);
+  const currentUser = useContext(UserContext);
 
-  const [name, setName] = React.useState('');
-  const [profession, setProfession] = React.useState('');
+  const [name, setName] = useState('');
+  const [profession, setProfession] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     setName(currentUser.name);
     setProfession(currentUser.about);
   }, [currentUser, isOpen]);
 
   // Event handlers //
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
-
-  function handleProfessionChange(e) {
-    setProfession(e.target.value);
-  }
-
-  function handleSubmit(e) {
+  const handleNameChange = (e) => setName(e.target.value);
+  const handleProfessionChange = (e) => setProfession(e.target.value);
+  
+  const handleSubmit = (e) => {
     e.preventDefault();
     onUpdateUser({
       name: name,
