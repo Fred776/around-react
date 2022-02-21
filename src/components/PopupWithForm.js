@@ -1,4 +1,3 @@
-import React from "react";
 import Popup from "./Popup";
 
 function PopupWithForm({title, formName, buttonText, isOpen, card, onClose, onSubmit, children}) {
