@@ -5,6 +5,8 @@
 		"airbnb-base"
 	],
   "rules": {
-    "no-underscore-dangle":  ["off", { "allow": ["id"] }]
+    "no-underscore-dangle":  ["off", { "allow": ["id"] }],
+		"quotes": ["error", "single"],
+		"jsx-quotes": ["error", "prefer-double"]
   }
 }
