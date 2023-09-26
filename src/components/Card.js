@@ -7,7 +7,7 @@ function Card({
   // Current User Context //
   const currentUser = useContext(UserContext);
   const currentUserCard = card.owner._id === currentUser._id;
-  const currentUserLike = card.likes.some((card) => card._id === currentUser._id);
+  const currentUserLike = card.likes.some((currentCard) => currentCard._id === currentUser._id);
 
   // Card Event handlers //
   const handleClick = () => onCardClick(card);

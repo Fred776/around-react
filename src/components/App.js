@@ -80,12 +80,12 @@ function App() {
   const handleCardLike = (card, cardId) => {
     if (card.likes.some((card) => card._id === currentUser._id)) {
       api.deleteLike(cardId).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
       })
         .catch((err) => console.log(`Error: ${err}`));
     } else {
       api.addLike(cardId).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
       })
         .catch((err) => console.log(`Error: ${err}`));
     }
