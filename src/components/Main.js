@@ -1,16 +1,23 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 import { UserContext } from '../contexts/CurrentUserContext';
-import Card from './Card.js';
+import Card from './Card';
 import editButtonSign from '../images/profile__edit-button-sign.svg';
 
-function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, cards, onCardClick, onCardLike, onCardDeleteClick}) {
-
+function Main({
+  onEditProfileClick,
+  onAddPlaceClick,
+  onEditAvatarClick,
+  cards,
+  onCardClick,
+  onCardLike,
+  onCardDeleteClick,
+}) {
   const currentUser = useContext(UserContext);
 
-  return(
+  return (
     <main>
       <section className="profile page__wrapper">
-        <button className="profile__avatar" type="button" style={{backgroundImage: `url(${currentUser.avatar})`}} onClick={onEditAvatarClick} aria-label="edit-avatar">
+        <button className="profile__avatar" type="button" style={{ backgroundImage: `url(${currentUser.avatar})` }} onClick={onEditAvatarClick} aria-label="edit-avatar">
           <img className="profile__avatar-button" src={editButtonSign} alt="edit-avatar" />
         </button>
         <div className="profile__info">
@@ -24,7 +31,15 @@ function Main({onEditProfileClick, onAddPlaceClick, onEditAvatarClick, cards, on
       </section>
       <section className="places page__wrapper">
         <ul className="places__list">
-          {cards.map((card) => (<Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDeleteClick={onCardDeleteClick}/>))} 
+          {cards.map((card) => (
+            <Card
+              key={card._id}
+              card={card}
+              onCardClick={onCardClick}
+              onCardLike={onCardLike}
+              onCardDeleteClick={onCardDeleteClick}
+            />
+          ))}
         </ul>
       </section>
     </main>
