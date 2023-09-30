@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "description": "My fifth project at Practicum and the first one using React",
-  "homepage": "https://frederickjodozi/github.io/around-react",
+  "homepage": "https://frederickjodozi.github.io/around-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
