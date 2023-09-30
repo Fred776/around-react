@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { UserContext } from '../contexts/CurrentUserContext';
+import UserContext from '../contexts/CurrentUserContext';
 import api from '../utils/api';
 import Header from './Header';
 import Main from './Main';

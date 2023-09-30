@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { UserContext } from '../contexts/CurrentUserContext';
+import UserContext from '../contexts/CurrentUserContext';
 import Card from './Card';
 import editButtonSign from '../images/profile__edit-button-sign.svg';
 
