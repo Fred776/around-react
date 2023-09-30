@@ -78,7 +78,7 @@ function App() {
 
   // Card Event Handlers //
   const handleCardLike = (card, cardId) => {
-    if (card.likes.some((card) => card._id === currentUser._id)) {
+    if (card.likes.some((currentCard) => currentCard._id === currentUser._id)) {
       api.deleteLike(cardId).then((newCard) => {
         setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
       })
@@ -93,7 +93,7 @@ function App() {
 
   const handleCardDelete = (cardId) => {
     api.deleteCard(cardId).then(() => {
-      setCards((cards) => (cards.filter((card) => card._id !== cardId)));
+      setCards((currentCards) => (currentCards.filter((card) => card._id !== cardId)));
       closeAllPopups();
     })
       .catch((err) => console.log(`Error: ${err}`));

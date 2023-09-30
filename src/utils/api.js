@@ -1,3 +1,5 @@
+/* eslint-disable prefer-promise-reject-errors */
+/* eslint-disable class-methods-use-this */
 class Api {
   constructor({ baseUrl, authToken }) {
     this._baseUrl = baseUrl;
