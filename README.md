@@ -2,7 +2,9 @@
 This project is my first one using the React library! It consists of a Frontend React App that uses the same design and is connected to the the same Api as the original [web_project_4](https://frederickjodozi.github.io/web_project_4/) built with vanilla javascript.
 
 ## *Features*
-The user can use the App to create a profile and add to a prexisting collection of location cards set on places of interests in the United States and abroad. The data is stored on TripleTen's Api and the locations rendered at load time come from the entire student cohort.  
+The user can use the App to create a profile and add to a prexisting collection of location cards set on places of interests in the United States and abroad. The data is stored on TripleTen's Api and the locations rendered at load time come from the entire student cohort. 
+ 
+**React states** are used to display popups and location cards and **React Context** is used to display user information throughout the page.  
 
 The site's main React components are as follows:
 - A **Frontend Api** used to create, read, update and delete user and location data.
@@ -19,4 +21,3 @@ Since this project is connected to TripleTen's Backend, the api key required to 
 **Thanks again to TripleTen for providing me with the materials and instructions to build this project!**
 
 ### [around-react](https://frederickjodozi.github.io/around-react/)
-
