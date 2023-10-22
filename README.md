@@ -16,8 +16,6 @@ This projects marks the first time I have used a *linter* **(ESLint)** in a proj
 ## *Contributions*
 This project can be used as learning tool for people beginning to learn React. It can be cloned on a local machine for studying and/or editing, and relevant pull requests will be accepted! Required work on the project currently include adding the built-in Javascript date object to update the date listed in the footer component.  
 
-Since this project is connected to TripleTen's Backend, the api key required to manipulate data has been removed from the project to prevent non-students from adding or deleting data. 
-
 **Thanks again to TripleTen for providing me with the materials and instructions to build this project!**
 
 ### [around-react](https://frederickjodozi.github.io/around-react/)
